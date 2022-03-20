@@ -39,4 +39,11 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
 
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable long id){
+        Employee employee = null;
+        employee = employeeService.getEmployeeById(id);
+        return ResponseEntity.ok(employee);
+    }
 }
