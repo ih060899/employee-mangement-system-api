@@ -2,13 +2,13 @@ package com.imran.employee.controller;
 
 import com.imran.employee.model.Employee;
 import com.imran.employee.services.EmployeeService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/employees")
+@CrossOrigin
 public class EmployeeController {
 
     private EmployeeService employeeService;
@@ -20,5 +20,10 @@ public class EmployeeController {
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeService.createEmployee(employee);
+    }
+
+    @GetMapping
+    public List<Employee> getAllEmployees(){
+        return employeeService.getAllEmployees();
     }
 }
